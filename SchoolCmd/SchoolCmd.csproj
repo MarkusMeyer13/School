@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolLogic\SchoolLogic.csproj">
+      <Project>{19383744-f9ad-45ea-a219-34dacb6beb3d}</Project>
+      <Name>SchoolLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

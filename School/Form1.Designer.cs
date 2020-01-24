@@ -33,11 +33,11 @@
             this.txtMathGrade1 = new System.Windows.Forms.TextBox();
             this.txtMathGrade2 = new System.Windows.Forms.TextBox();
             this.txtMathGrade3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnCalculate = new System.Windows.Forms.Button();
+            this.txtGermanGrade3 = new System.Windows.Forms.TextBox();
+            this.txtGermanGrade2 = new System.Windows.Forms.TextBox();
+            this.txtGermanGrade1 = new System.Windows.Forms.TextBox();
+            this.lblGermanGrade = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -80,44 +80,45 @@
             this.txtMathGrade3.Size = new System.Drawing.Size(100, 31);
             this.txtMathGrade3.TabIndex = 4;
             // 
-            // button1
+            // btnCalculate
             // 
-            this.button1.Location = new System.Drawing.Point(624, 339);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 58);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Calculate";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCalculate.Location = new System.Drawing.Point(624, 339);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(127, 58);
+            this.btnCalculate.TabIndex = 5;
+            this.btnCalculate.Text = "Calculate";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.BtnCalculate_Click);
             // 
-            // textBox1
+            // txtGermanGrade3
             // 
-            this.textBox1.Location = new System.Drawing.Point(433, 135);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 31);
-            this.textBox1.TabIndex = 10;
+            this.txtGermanGrade3.Location = new System.Drawing.Point(433, 135);
+            this.txtGermanGrade3.Name = "txtGermanGrade3";
+            this.txtGermanGrade3.Size = new System.Drawing.Size(100, 31);
+            this.txtGermanGrade3.TabIndex = 10;
             // 
-            // textBox2
+            // txtGermanGrade2
             // 
-            this.textBox2.Location = new System.Drawing.Point(297, 135);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 31);
-            this.textBox2.TabIndex = 9;
+            this.txtGermanGrade2.Location = new System.Drawing.Point(297, 135);
+            this.txtGermanGrade2.Name = "txtGermanGrade2";
+            this.txtGermanGrade2.Size = new System.Drawing.Size(100, 31);
+            this.txtGermanGrade2.TabIndex = 9;
             // 
-            // textBox3
+            // txtGermanGrade1
             // 
-            this.textBox3.Location = new System.Drawing.Point(158, 135);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 31);
-            this.textBox3.TabIndex = 8;
+            this.txtGermanGrade1.Location = new System.Drawing.Point(158, 135);
+            this.txtGermanGrade1.Name = "txtGermanGrade1";
+            this.txtGermanGrade1.Size = new System.Drawing.Size(100, 31);
+            this.txtGermanGrade1.TabIndex = 8;
             // 
-            // label2
+            // lblGermanGrade
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(560, 135);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "0,0";
+            this.lblGermanGrade.AutoSize = true;
+            this.lblGermanGrade.Location = new System.Drawing.Point(560, 135);
+            this.lblGermanGrade.Name = "lblGermanGrade";
+            this.lblGermanGrade.Size = new System.Drawing.Size(42, 25);
+            this.lblGermanGrade.TabIndex = 7;
+            this.lblGermanGrade.Text = "0,0";
             // 
             // label3
             // 
@@ -133,12 +134,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtGermanGrade3);
+            this.Controls.Add(this.txtGermanGrade2);
+            this.Controls.Add(this.txtGermanGrade1);
+            this.Controls.Add(this.lblGermanGrade);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.txtMathGrade3);
             this.Controls.Add(this.txtMathGrade2);
             this.Controls.Add(this.txtMathGrade1);
@@ -158,11 +159,11 @@
         private System.Windows.Forms.TextBox txtMathGrade1;
         private System.Windows.Forms.TextBox txtMathGrade2;
         private System.Windows.Forms.TextBox txtMathGrade3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnCalculate;
+        private System.Windows.Forms.TextBox txtGermanGrade3;
+        private System.Windows.Forms.TextBox txtGermanGrade2;
+        private System.Windows.Forms.TextBox txtGermanGrade1;
+        private System.Windows.Forms.Label lblGermanGrade;
         private System.Windows.Forms.Label label3;
     }
 }
