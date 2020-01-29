@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SchoolLogic
 {
+    /// <summary>
+    /// SchoolSubject.
+    /// </summary>
     public class SchoolSubject
     {
         /// <summary>
@@ -30,8 +33,12 @@ namespace SchoolLogic
         /// <returns></returns>
         public double CalculateAverage()
         {
-            double result = this.Grades[0] + this.Grades[1] + this.Grades[2];
-            result = result / 3;
+            double result = 0;
+            for(int i= 0; i < this.Grades.Length; i++)
+            {
+                result += this.Grades[i];
+            }
+            result /= this.Grades.Length;
             return result;
         }
     }
