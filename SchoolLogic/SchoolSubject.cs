@@ -40,23 +40,25 @@ namespace SchoolLogic
         /// <returns></returns>
         public double CalculateAverage()
         {
+            List<double> grades = this.Grades.ToList<double>();
+
             double result = 0;
-            int gradeCount = 0;
-            if (this.Grades != null)
-            {
-                for (int i = 0; i < this.Grades.Length; i++)
-                {
-                    if (this.Grades[i] != 0 && this.Grades[i] != double.NaN)
-                    {
-                        result += this.Grades[i];
-                        gradeCount++;
-                    }
-                }
-                if (gradeCount != 0)
-                {
-                    result /= gradeCount;
-                }
-            }
+            //int gradeCount = 0;
+            //if (this.Grades != null)
+            //{
+            //    for (int i = 0; i < this.Grades.Length; i++)
+            //    {
+            //        if (this.Grades[i] != 0 && this.Grades[i] != double.NaN)
+            //        {
+            //            result += this.Grades[i];
+            //            gradeCount++;
+            //        }
+            //    }
+            //    if (gradeCount != 0)
+            //    {
+            //        result /= gradeCount;
+            //    }
+            //}
             return result;
         }
     }
