@@ -12,6 +12,13 @@ namespace SchoolLogic
     public class SchoolSubject
     {
         /// <summary>
+        /// Initializes a new instance of the <see cref="SchoolSubject"/> class.
+        /// </summary>
+        public SchoolSubject()
+        {
+        }
+
+        /// <summary>
         /// Gets or sets the grades.
         /// </summary>
         /// <value>
@@ -34,11 +41,22 @@ namespace SchoolLogic
         public double CalculateAverage()
         {
             double result = 0;
-            for(int i= 0; i < this.Grades.Length; i++)
+            int gradeCount = 0;
+            if (this.Grades != null)
             {
-                result += this.Grades[i];
+                for (int i = 0; i < this.Grades.Length; i++)
+                {
+                    if (this.Grades[i] != 0 && this.Grades[i] != double.NaN)
+                    {
+                        result += this.Grades[i];
+                        gradeCount++;
+                    }
+                }
+                if (gradeCount != 0)
+                {
+                    result /= gradeCount;
+                }
             }
-            result /= this.Grades.Length;
             return result;
         }
     }
