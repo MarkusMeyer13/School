@@ -1,5 +1,6 @@
 ﻿using SchoolLogic;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace School
@@ -11,8 +12,14 @@ namespace School
             InitializeComponent();
         }
 
-        private void BtnCalculate_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Calculates this instance.
+        /// </summary>
+        /// <returns></returns>
+        private IList<SchoolSubject> Calculate()
         {
+            List<SchoolSubject> subjects = new List<SchoolSubject>();
+
             double math1 = double.Parse(this.txtMathGrade1.Text);
             double math2 = double.Parse(this.txtMathGrade2.Text);
             double math3 = double.Parse(this.txtMathGrade3.Text);
@@ -26,8 +33,8 @@ namespace School
                 Name = "Mathe",
                 Grades = mathGrades,
             };
-            double mathAverage = math.CalculateAverage();
-            this.lblMathGrade.Text = string.Format("{0:0.00}", mathAverage);
+            _ = math.CalculateAverage();
+            subjects.Add(math);
 
             double german1 = double.Parse(this.txtGermanGrade1.Text);
             double german2 = double.Parse(this.txtGermanGrade2.Text);
@@ -42,9 +49,46 @@ namespace School
                 Name = "Deutsch",
                 Grades = germanGrades,
             };
-            double germanAverage = german.CalculateAverage();
-            this.lblGermanGrade.Text = string.Format("{0:0.00}", germanAverage);
+            _ = german.CalculateAverage();
+            subjects.Add(german);
 
+            return subjects;
+        }
+
+        /// <summary>
+        /// Handles the Click event of the BtnCalculate control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void BtnCalculate_Click(object sender, EventArgs e)
+        {
+            var subjects = this.Calculate();
+
+            for(int i = 0; i < subjects.Count; i++)
+            {
+                if (subjects[i].Name.Equals("Deutsch"))
+                {
+                    this.lblGermanGrade.Text = string.Format("{0:0.00}", subjects[i].Average);
+                }
+                else if (subjects[i].Name.Equals("Mathe"))
+                {
+                    this.lblMathGrade.Text = string.Format("{0:0.00}", subjects[i].Average);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles the Click event of the btnSave control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var subjects = this.Calculate();
+            for (int i = 0; i < subjects.Count; i++)
+            {
+                subjects[i].Save();
+            }
         }
     }
 }
