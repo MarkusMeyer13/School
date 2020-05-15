@@ -1,0 +1,21 @@
+{
+  "firstname": "Markus",
+  "age": 40,
+  "isMale": true,
+
+  "person": {
+    "lastname": "Meyer"
+  },
+
+  "persons": [
+    {
+      "firstname": "Achim"
+    },
+    {
+      "firstname": "Mick"
+    },
+    {
+      "firstname": "Iljas"
+    }
+  ]
+}

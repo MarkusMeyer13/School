@@ -7,6 +7,10 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Runtime.CompilerServices;
+using System.Dynamic;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace SchoolFunction
 {
@@ -22,12 +26,51 @@ namespace SchoolFunction
             string name = req.Query["name"];
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+            JObject data = JObject.Parse(requestBody);
+            var firstName = data["firstname"].Value<string>();
+            //var lastName = data["person.lastname"].Value<string>();
+            //var lastName = data["person"]["lastname"].Value<string>();
+            var lastName = data["persons"][0]["firstname"].Value<string>();
+
+            //JArray persons = data["persons"] as JArray;
+
+            if (data["persons"].Type == JTokenType.Array)
+            {
+                JArray persons = data["persons"] as JArray;
+            }
+            if (data["person"].Type == JTokenType.Object)
+            {
+                data["person"] = null;
+
+                JObject person = data["person"] as JObject;
+                if(person != null)
+                {
+                    Console.WriteLine(person["firstname"]);
+                }
+
+                if (data["person"] != null)
+                {
+                    JObject person1 = (JObject)data["person"];
+                    Console.WriteLine(person1["firstname"]);
+                }
+
+
+            }
+
+
+            //persons.Type == JTokenType.Array;
+
+
+
+
+            //JObject dataConvert = JsonConvert.DeserializeObject<JObject>(requestBody);
+
+
+
+
+            string responseMessage = lastName;
+
 
             return new OkObjectResult(responseMessage);
         }
@@ -51,7 +94,7 @@ namespace SchoolFunction
                 double.TryParse(req.Query["number2"], out number2);
             }
 
-            string responseMessage = ((number1 + number2)/2).ToString();
+            string responseMessage = ((number1 + number2) / 2).ToString();
 
             return new OkObjectResult(responseMessage);
         }

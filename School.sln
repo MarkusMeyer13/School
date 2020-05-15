@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School.Test", "School.Test\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolData", "SchoolData\SchoolData.csproj", "{15D55D8D-46C8-4CF6-BB6F-813095B8986F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolFunction", "SchoolFunction\SchoolFunction.csproj", "{96C74EFF-2421-476E-A9F2-B1FED65047B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolFunction", "SchoolFunction\SchoolFunction.csproj", "{96C74EFF-2421-476E-A9F2-B1FED65047B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
