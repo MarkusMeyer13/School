@@ -90,5 +90,22 @@ namespace School
                 subjects[i].Save();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Grade grade = new Grade();
+            grade.GradeSubmitted += Grade_GradeSubmitted;
+            grade.Show();
+        }
+
+        private void Grade_GradeSubmitted(string grade)
+        {
+            this.txtGermanGrade1.Text = grade;
+            this.txtGermanGrade2.Text = grade;
+            this.txtGermanGrade3.Text = grade;
+            this.txtMathGrade1.Text = grade;
+            this.txtMathGrade2.Text = grade;
+            this.txtMathGrade3.Text = grade;
+        }
     }
 }

@@ -30,7 +30,6 @@ namespace SchoolFunction
         /// <value>
         /// The average.
         /// </value>
-        [JsonProperty("Durchschnitt")]
         public double Average
         {
             get
